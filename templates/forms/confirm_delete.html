@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Eliminar Usuario</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container text-center pt-5">
+    <h1>Eliminar Usuario</h1>
+    <div class='jumbotron'>
+      <p>¿Estás seguro que deseas eliminar a {{ usuario.nombre }}?</p>
+      <form action="{% url 'forms:delete_user' usuario.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a href="{% url 'forms:mi_form' %}" class="btn btn-secondary">Cancelar</a>
+      </form>
+    </div>
+  </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+</html>

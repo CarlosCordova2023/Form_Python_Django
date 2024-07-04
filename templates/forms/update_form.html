@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Actualizar Usuario</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container text-center pt-5">
+    <h1>Actualizar Usuario</h1>
+    <div class='jumbotron'>
+      <form action="{% url 'forms:update_user' form.instance.id %}" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class='form-group'>
+          <label for="{{ field.name }}">{{ field.label }}</label>
+          {{ field }}
+        </div>
+        {% endfor %}
+        <br>
+        <button type="submit" class="btn btn-success btn-lg">Actualizar</button>
+      </form>
+    </div>
+  </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+</html>
